@@ -46,4 +46,12 @@ Source: whats360.live dashboard "VCash user guide" page, seen in a dashboard PDF
 4. Incoming SMS tab: lists received messages with amount, sender and date. A manual SMS send is also available.
 5. Message patterns: add or edit regex patterns that extract amount, phone number, transaction ID and name, and are applied to each incoming SMS to create a transaction. You can test a pattern on a real message before saving.
 
+6. USSD commands tab: type a command, choose the device and SIM slot, and run it. The guide says the network reply is returned automatically and a PIN dialog is filled from the device settings if you saved a PIN. The API pages only show status `pending` for the API call, so result delivery through the API is not documented here.
+7. USSD campaigns: a command template with variables such as the phone and the amount, plus a list with one `number,amount` pair per line. Commands run one after another. A campaign can be paused and resumed.
+8. USSD scenarios: multi-step sequences. A step is a USSD command or a 2-second wait, and you can define variables such as phone and amount.
+9. Accounts: lists recorded transactions, with filters by device, type (income or expense) and date. A transaction is recorded when an SMS arrives and matches a pattern.
+10. Security: each device has its own token, so do not share it. The guide says the USSD PIN is stored encrypted and is not sent by SMS. A device can be disabled from the dashboard without deleting it, for example when a phone is lost.
+
+Steps 6 to 10 come from the owner-supplied "VCash user guide" PDF (Telegram upload, Nov 2026). Dashboard behaviour as described there, not tested.
+
 This reads wallet notification SMS on your own device. It is not bank or provider verification.
