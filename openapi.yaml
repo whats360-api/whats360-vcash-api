@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: Whats360 VCash API (draft from dashboard docs)
+  version: 0.1.0
+  description: Draft. Not verified against the live service. Error schemas are not documented.
+servers:
+  - url: https://whats360.live
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+  - bearer: []
+paths:
+  /api/v1/vcash/devices:
+    get:
+      summary: List VCash devices
+      responses:
+        '200': {description: Devices list (id, name, status, device_model, sim1_carrier, sim1_number, is_enabled, last_seen)}
+  /api/v1/vcash/sms/send:
+    post:
+      summary: Send an SMS through a connected device
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [device_id, recipient, message]
+              properties:
+                device_id: {type: string}
+                recipient: {type: string}
+                message: {type: string}
+                sim_slot: {type: integer, example: 1}
+      responses:
+        '200': {description: "success, message, sms_id"}
+  /api/v1/vcash/ussd/execute:
+    post:
+      summary: Execute a USSD command on a connected device (may move money)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [device_id, command]
+              properties:
+                device_id: {type: string}
+                command: {type: string}
+                sim_slot: {type: integer, example: 1}
+      responses:
+        '200': {description: "success, command_id, status (pending), message"}
+  /api/v1/vcash/balance:
+    get:
+      summary: Balance summary
+      parameters:
+        - {name: device_id, in: query, schema: {type: string}}
+      responses:
+        '200': {description: "total_income, total_expense, net_balance, transaction_count, currency"}
