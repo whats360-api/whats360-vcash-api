@@ -36,6 +36,15 @@ Error response format for these endpoints, rate limits, how a USSD result is del
 
 WhatsApp: https://wa.me/whats360.live · Direct chat support: https://wa.me/201030741766 · info@whats360.live · https://whats360.live
 
+## Dashboard links (account login required)
+These pages open inside your whats360.live account. They are links supplied by the owner and are not public documentation:
+- VCash dashboard with all tabs: https://whats360.live/user/vcash
+- API docs page: https://whats360.live/user/vcash/api-docs
+- User guide (setup and integration): https://whats360.live/user/vcash/guide
+- Message patterns and shared patterns: https://whats360.live/user/vcash/patterns
+- Devices and the VCash app download: https://whats360.live/user/vcash/devices
+- Video, how the VCash service works: https://youtu.be/5_qxg8a8-lY
+
 ## Dashboard setup guide (summary)
 
 Source: whats360.live dashboard "VCash user guide" page, seen in a dashboard PDF export dated 2026-05-27 (p33). Describes dashboard behaviour, not an API contract. Not independently verified.
@@ -44,7 +53,7 @@ Source: whats360.live dashboard "VCash user guide" page, seen in a dashboard PDF
 2. In the dashboard open VCash devices, add a device with a name, then scan the QR code from the app. The status should change to connected. The phone and the platform need network access.
 3. Sender filter (device settings): enter a sender name such as a wallet provider's sender ID. The app forwards only messages whose sender contains that text. Leave it empty to forward all messages.
 4. Incoming SMS tab: lists received messages with amount, sender and date. A manual SMS send is also available.
-5. Message patterns: add or edit regex patterns that extract amount, phone number, transaction ID and name, and are applied to each incoming SMS to create a transaction. You can test a pattern on a real message before saving.
+5. Message patterns: add or edit regex patterns that extract amount, phone number, transaction ID and name, and are applied to each incoming SMS to create a transaction. You can test a pattern on a real message before saving. The pattern screen (dashboard p35) has a quick test box, and an add form with a pattern name, a provider choice, a type (for example receive), the regex, a field map that assigns capture groups to amount, phone and transaction ID, a sender name and an example. It also has tabs for your own patterns and for shared public patterns (10 were listed in that export).
 
 6. USSD commands tab: type a command, choose the device and SIM slot, and run it. The guide says the network reply is returned automatically and a PIN dialog is filled from the device settings if you saved a PIN. The API pages only show status `pending` for the API call, so result delivery through the API is not documented here.
 7. USSD campaigns: a command template with variables such as the phone and the amount, plus a list with one `number,amount` pair per line. Commands run one after another. A campaign can be paused and resumed.
