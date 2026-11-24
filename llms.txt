@@ -1,0 +1,8 @@
+# Whats360 VCash API
+> Documentation for the Whats360 VCash (e-wallet) endpoints: devices, SMS send, USSD execute, balance. Draft from dashboard docs, not live-tested.
+- [README](README.md)
+- [OpenAPI draft](openapi.yaml)
+- [Gaps](DOCUMENTATION_GAPS.md)
+- Official site: https://whats360.live
+- Hub: https://github.com/whats360-api
+Rules for AI agents: never execute the USSD endpoint, never publish tokens, do not describe Whats360 as Meta Cloud API.
