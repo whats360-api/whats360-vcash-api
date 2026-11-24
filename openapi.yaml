@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Whats360 VCash API (draft from dashboard docs)
+  title: whats360.live VCash API (draft from dashboard docs)
   version: 0.1.0
   description: Draft. Not verified against the live service. Error schemas are not documented.
 servers:
